@@ -31,13 +31,13 @@ export const Navbar = () => {
               sizes="42px"
               className="cursor-pointer rounded-full border border-[#7042f88b]"
             />
-            <span className="hidden xl:block text-gray-300 font-medium text-sm tracking-wide">
+            <span className="hidden md:block text-gray-300 font-medium text-sm tracking-wide">
               {PROFILE.name}
             </span>
           </Link>
 
           {/* Centered glass-pill navigation — desktop only */}
-          <nav className="absolute left-1/2 -translate-x-1/2 hidden lg:flex glass-pill">
+          <nav className="absolute left-1/2 -translate-x-1/2 hidden md:flex glass-pill">
             {NAV_LINKS.map((link) => {
               const isActive = pathname === link.link;
               return (
@@ -58,7 +58,8 @@ export const Navbar = () => {
 
           {/* Hamburger — mobile / tablet */}
           <button
-            className="ml-auto lg:hidden glass-pill px-3 py-2 text-white"
+            className="ml-auto md:hidden glass-pill flex items-center justify-center text-white"
+            style={{ minWidth: '44px', minHeight: '44px' }}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
             aria-expanded={isMobileMenuOpen}
@@ -93,7 +94,7 @@ export const Navbar = () => {
       {/* ── Mobile dropdown — sits below header, above content ── */}
       {isMobileMenuOpen && (
         <div
-          className="fixed z-40 lg:hidden section-padding pb-3"
+          className="fixed z-40 md:hidden section-padding pb-3 w-full"
           style={{ top: "var(--header-h)" }}
         >
           <div className="glass-panel flex flex-col items-center gap-1 py-4 text-gray-300 w-full max-w-sm mx-auto">
@@ -103,11 +104,12 @@ export const Navbar = () => {
                 <Link
                   key={link.title}
                   href={link.link}
-                  className={`px-6 py-2 rounded-full text-center transition w-full ${
+                  className={`px-6 py-3 rounded-full text-center transition w-full ${
                     isActive
                       ? "text-white nav-link-active"
                       : "hover:text-[rgb(112,66,248)]"
                   }`}
+                  style={{ minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.title}
