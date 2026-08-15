@@ -8,7 +8,7 @@ import { CERTIFICATIONS } from "@/constants";
 
 export const CertificationsContent = () => {
   return (
-    <section className="flex flex-col items-center justify-center min-h-screen py-20 section-padding">
+    <section className="flex flex-col items-center justify-center py-10 section-padding">
       <div className="content-wide flex flex-col gap-10">
         <SectionHeading
           chip="Credentials"

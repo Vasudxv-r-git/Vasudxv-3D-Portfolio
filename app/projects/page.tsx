@@ -6,7 +6,7 @@ export const metadata = {
 
 export default function ProjectsPage() {
   return (
-    <main className="h-full w-full pt-24">
+    <main className="h-full w-full">
       <ProjectsContent />
     </main>
   );

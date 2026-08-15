@@ -6,7 +6,7 @@ export const metadata = {
 
 export default function ExperiencePage() {
   return (
-    <main className="h-full w-full pt-24">
+    <main className="h-full w-full">
       <ExperienceContent />
     </main>
   );

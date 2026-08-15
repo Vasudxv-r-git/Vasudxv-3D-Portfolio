@@ -20,7 +20,7 @@ const PILLAR_ICONS = [
 
 export const Pillars = () => {
   return (
-    <section className="flex flex-col items-center justify-center min-h-screen py-20 section-padding">
+    <section className="flex flex-col items-center justify-center py-10 section-padding">
       <SectionHeading
         chip="What I work with"
         title="Core Strengths"

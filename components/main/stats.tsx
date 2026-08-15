@@ -44,7 +44,7 @@ const StatCounter = ({
 
 export const Stats = () => {
   return (
-    <section className="flex flex-col items-center justify-center py-20 section-padding">
+    <section className="flex flex-col items-center justify-center py-10 section-padding">
       <div className="content-wide grid grid-cols-2 lg:grid-cols-4 gap-8">
         {STATS.map((stat, i) => (
           <motion.div

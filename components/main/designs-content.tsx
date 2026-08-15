@@ -88,7 +88,7 @@ export const DesignsContent = () => {
   const closeLightbox = useCallback(() => setLightboxItem(null), []);
 
   return (
-    <section className="flex flex-col items-center justify-center min-h-screen py-20 section-padding">
+    <section className="flex flex-col items-center justify-center py-10 section-padding">
       <div className="content-wide flex flex-col gap-16">
         <SectionHeading
           chip="CAD showcase"

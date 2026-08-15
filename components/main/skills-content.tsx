@@ -51,7 +51,7 @@ const SkillBar = ({
 
 export const SkillsContent = () => {
   return (
-    <section className="flex flex-col items-center justify-center gap-3 min-h-screen relative overflow-hidden py-20 section-padding">
+    <section className="flex flex-col items-center justify-center gap-3 relative overflow-hidden py-10 section-padding">
       <div className="content-wide flex flex-col gap-8">
         <SectionHeading
           chip="My expertise"
