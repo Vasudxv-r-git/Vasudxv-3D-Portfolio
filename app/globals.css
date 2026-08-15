@@ -231,4 +231,12 @@ html {
     min-height: 44px !important;
     min-width: 44px !important;
   }
+
+  /* Remove navbar on mobile */
+  .site-header {
+    display: none !important;
+  }
+  :root {
+    --header-h: 0px;
+  }
 }
