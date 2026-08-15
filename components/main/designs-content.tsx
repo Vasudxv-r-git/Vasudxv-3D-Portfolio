@@ -7,6 +7,7 @@ import { XMarkIcon } from "@heroicons/react/24/solid";
 
 import { SectionHeading } from "@/components/sub/section-heading";
 import { DESIGN_CATEGORIES } from "@/constants";
+import { MagicCard } from "@/components/magicui/magic-card";
 
 type LightboxItem = {
   name: string;
@@ -128,23 +129,25 @@ export const DesignsContent = () => {
                       category: `${category.title} — ${category.tools}`,
                     })
                   }
-                  className="group flex flex-col gap-3 rounded-lg shadow-lg border border-[#2A0E61] bg-[rgba(3,0,20,0.37)] p-4 text-start hover:border-[#7042f88b] transition cursor-pointer"
+                  className="text-start h-full"
                 >
-                  <div className="relative w-full aspect-video overflow-hidden rounded-lg border border-[#2A0E61]">
-                    <Image
-                      src={item.image}
-                      alt={item.name}
-                      fill
-                      loading="lazy"
-                      unoptimized={true}
-                      className="object-cover transition duration-300 group-hover:scale-105"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    />
-                  </div>
-                  <h4 className="text-lg font-semibold text-white">
-                    {item.name}
-                  </h4>
-                  <p className="text-gray-400 text-sm">{item.note}</p>
+                  <MagicCard className="group flex flex-col gap-3 shadow-lg p-4 cursor-pointer h-full">
+                    <div className="relative w-full aspect-video overflow-hidden rounded-lg border border-[#2A0E61]">
+                      <Image
+                        src={item.image}
+                        alt={item.name}
+                        fill
+                        loading="lazy"
+                        unoptimized={true}
+                        className="object-cover transition duration-300 group-hover:scale-105"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      />
+                    </div>
+                    <h4 className="text-lg font-semibold text-white">
+                      {item.name}
+                    </h4>
+                    <p className="text-gray-400 text-sm">{item.note}</p>
+                  </MagicCard>
                 </motion.button>
               ))}
             </div>

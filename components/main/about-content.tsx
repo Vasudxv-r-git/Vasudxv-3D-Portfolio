@@ -10,6 +10,7 @@ import { motion } from "framer-motion";
 
 import { SectionHeading } from "@/components/sub/section-heading";
 import { ABOUT, EDUCATION } from "@/constants";
+import { MagicCard } from "@/components/magicui/magic-card";
 
 const PRINCIPLE_ICONS = [
   RocketLaunchIcon,
@@ -40,7 +41,7 @@ export const AboutContent = () => {
         {/* Story + Education — side by side on large screens */}
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
           {/* Story */}
-          <div className="rounded-lg shadow-lg border border-[#2A0E61] bg-[rgba(3,0,20,0.37)] p-8">
+          <MagicCard className="shadow-lg p-8 h-full">
             <h3 className="text-2xl font-semibold text-white mb-6">
               My{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
@@ -61,10 +62,10 @@ export const AboutContent = () => {
                 </motion.p>
               ))}
             </div>
-          </div>
+          </MagicCard>
 
           {/* Education timeline */}
-          <div className="rounded-lg shadow-lg border border-[#2A0E61] bg-[rgba(3,0,20,0.37)] p-8">
+          <MagicCard className="shadow-lg p-8 h-full">
             <h3 className="flex items-center gap-3 text-2xl font-semibold text-white mb-8">
               <AcademicCapIcon className="h-8 w-8 text-[#b49bff]" />
               Education
@@ -93,7 +94,7 @@ export const AboutContent = () => {
                 </motion.div>
               ))}
             </div>
-          </div>
+          </MagicCard>
         </div>
 
         {/* Principles — 3 columns */}
@@ -107,13 +108,15 @@ export const AboutContent = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.15, duration: 0.5 }}
-                className="flex flex-col items-center text-center gap-4 rounded-lg shadow-lg border border-[#2A0E61] bg-[rgba(3,0,20,0.37)] p-6 hover:border-[#7042f88b] transition"
+                className="h-full"
               >
-                <Icon className="h-10 w-10 text-[#b49bff]" />
-                <h4 className="text-xl font-semibold text-white">
-                  {principle.title}
-                </h4>
-                <p className="text-gray-400 text-sm">{principle.description}</p>
+                <MagicCard className="flex flex-col items-center text-center gap-4 shadow-lg p-6 h-full">
+                  <Icon className="h-10 w-10 text-[#b49bff]" />
+                  <h4 className="text-xl font-semibold text-white">
+                    {principle.title}
+                  </h4>
+                  <p className="text-gray-400 text-sm">{principle.description}</p>
+                </MagicCard>
               </motion.div>
             );
           })}

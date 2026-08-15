@@ -4,6 +4,7 @@ import { SparklesIcon } from "@heroicons/react/24/solid";
 import { motion, type Variants } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { InteractiveHoverButton } from "@/components/magicui/interactive-hover-button";
 
 import { PROFILE } from "@/constants";
 import {
@@ -68,11 +69,10 @@ export const HeroContent = () => {
         </motion.p>
 
         <motion.div variants={slideInFromLeft(1)}>
-          <Link
-            href="/designs"
-            className="py-2 px-6 button-primary text-center text-white cursor-pointer rounded-lg max-w-[200px]"
-          >
-            View Designs
+          <Link href="/designs" className="inline-block w-full max-w-[200px]">
+            <InteractiveHoverButton className="w-full">
+              View Designs
+            </InteractiveHoverButton>
           </Link>
         </motion.div>
       </div>
