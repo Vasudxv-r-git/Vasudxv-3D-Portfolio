@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
 
 import { SectionHeading } from "@/components/sub/section-heading";
 import { SkillDataProvider } from "@/components/sub/skill-data-provider";
@@ -20,20 +19,18 @@ const SkillBar = ({
   note: string;
   index: number;
 }) => {
-  const { ref, inView } = useInView({ triggerOnce: true });
-
   return (
     <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 30 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
       transition={{ delay: index * 0.1, duration: 0.5 }}
-      className="h-full flex flex-col gap-2 p-5 rounded-lg border border-[#2A0E61] bg-gradient-to-r from-[rgba(20,0,30,0.5)] to-[rgba(10,0,40,0.3)] shadow-[0_0_10px_rgba(42,14,97,0.3)] hover:border-[#b49bff]/50 hover:shadow-[0_0_15px_rgba(180,155,255,0.2)] transition-all duration-300"
+      className="flex flex-col items-start gap-3 rounded-lg shadow-lg border border-[#2A0E61] bg-[rgba(3,0,20,0.37)] p-6 hover:border-[#7042f88b] transition h-full"
     >
-      <div className="flex flex-row items-center justify-between">
-        <span className="text-white font-medium text-lg">{skill_name}</span>
-      </div>
-      <p className="text-gray-400 text-sm leading-relaxed flex-grow">{note}</p>
+      <h3 className="text-lg font-semibold text-white">
+        {skill_name}
+      </h3>
+      <p className="text-gray-400 text-sm">{note}</p>
     </motion.div>
   );
 };
@@ -71,7 +68,7 @@ export const SkillsContent = () => {
                 Design
               </span>
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 gap-6">
               {CAD_SKILLS.map((skill, i) => (
                 <SkillBar key={skill.skill_name} index={i} {...skill} />
               ))}
@@ -85,7 +82,7 @@ export const SkillsContent = () => {
                 Skills
               </span>
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 gap-6">
               {PROFESSIONAL_SKILLS.map((skill, i) => (
                 <SkillBar key={skill.skill_name} index={i} {...skill} />
               ))}
