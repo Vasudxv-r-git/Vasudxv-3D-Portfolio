@@ -91,31 +91,70 @@ export const Navbar = () => {
         </div>
       </header>
 
-      {/* ── Mobile dropdown — sits below header, above content ── */}
+      {/* ── Floating Mobile Hamburger (Mobile Only) ── */}
+      <button
+        className="fixed top-6 right-6 z-[60] md:hidden glass-pill flex items-center justify-center text-white bg-[rgba(3,0,20,0.8)] shadow-lg"
+        style={{ minWidth: '50px', minHeight: '50px' }}
+        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        aria-label="Toggle menu"
+        aria-expanded={isMobileMenuOpen}
+      >
+        {isMobileMenuOpen ? (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={2}
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        ) : (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={2}
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        )}
+      </button>
+
+      {/* ── Mobile Overlay Menu ── */}
       {isMobileMenuOpen && (
-        <div
-          className="fixed z-40 md:hidden section-padding pb-3 w-full"
-          style={{ top: "var(--header-h)" }}
-        >
-          <div className="glass-panel flex flex-col items-center gap-1 py-4 text-gray-300 w-full max-w-sm mx-auto">
-            {NAV_LINKS.map((link) => {
-              const isActive = pathname === link.link;
-              return (
-                <Link
-                  key={link.title}
-                  href={link.link}
-                  className={`px-6 py-3 rounded-full text-center transition w-full ${
-                    isActive
-                      ? "text-white nav-link-active"
-                      : "hover:text-[rgb(112,66,248)]"
-                  }`}
-                  style={{ minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {link.title}
-                </Link>
-              );
-            })}
+        <div className="fixed inset-0 z-50 md:hidden">
+          {/* Tap-outside to close backdrop */}
+          <div 
+            className="absolute inset-0 bg-black/60 backdrop-blur-md"
+            onClick={() => setIsMobileMenuOpen(false)}
+          />
+          
+          {/* Centered Menu Panel */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[85%] max-w-sm">
+            <div className="glass-panel flex flex-col items-center gap-3 py-8 px-4 text-gray-300 w-full shadow-2xl border border-[rgba(112,66,248,0.5)]">
+              {NAV_LINKS.map((link) => {
+                const isActive = pathname === link.link;
+                return (
+                  <Link
+                    key={link.title}
+                    href={link.link}
+                    className={`px-6 py-4 rounded-full text-center transition w-[90%] font-medium text-lg ${
+                      isActive
+                        ? "text-white nav-link-active"
+                        : "hover:text-white bg-[rgba(112,66,248,0.1)] border border-[rgba(112,66,248,0.3)]"
+                    }`}
+                    style={{ minHeight: '48px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {link.title}
+                  </Link>
+                );
+              })}
+            </div>
           </div>
         </div>
       )}
