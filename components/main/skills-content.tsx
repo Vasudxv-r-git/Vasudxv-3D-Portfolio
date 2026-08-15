@@ -28,12 +28,12 @@ const SkillBar = ({
       initial={{ opacity: 0, y: 30 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ delay: index * 0.1, duration: 0.5 }}
-      className="flex flex-col gap-2 p-5 rounded-lg border border-[#2A0E61] bg-gradient-to-r from-[rgba(20,0,30,0.5)] to-[rgba(10,0,40,0.3)] shadow-[0_0_10px_rgba(42,14,97,0.3)] hover:border-[#b49bff]/50 hover:shadow-[0_0_15px_rgba(180,155,255,0.2)] transition-all duration-300"
+      className="h-full flex flex-col gap-2 p-5 rounded-lg border border-[#2A0E61] bg-gradient-to-r from-[rgba(20,0,30,0.5)] to-[rgba(10,0,40,0.3)] shadow-[0_0_10px_rgba(42,14,97,0.3)] hover:border-[#b49bff]/50 hover:shadow-[0_0_15px_rgba(180,155,255,0.2)] transition-all duration-300"
     >
       <div className="flex flex-row items-center justify-between">
         <span className="text-white font-medium text-lg">{skill_name}</span>
       </div>
-      <p className="text-gray-400 text-sm leading-relaxed">{note}</p>
+      <p className="text-gray-400 text-sm leading-relaxed flex-grow">{note}</p>
     </motion.div>
   );
 };
@@ -62,8 +62,8 @@ export const SkillsContent = () => {
           ))}
         </div>
 
-        {/* Skill bars — full-width two column */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-8 mt-8">
+        {/* Skill bars — full-width one column with 4 items per row */}
+        <div className="flex flex-col gap-16 mt-8">
           <div className="flex flex-col gap-8">
             <h3 className="text-2xl font-semibold text-white mb-2">
               01 — CAD &{" "}
@@ -71,9 +71,11 @@ export const SkillsContent = () => {
                 Design
               </span>
             </h3>
-            {CAD_SKILLS.map((skill, i) => (
-              <SkillBar key={skill.skill_name} index={i} {...skill} />
-            ))}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {CAD_SKILLS.map((skill, i) => (
+                <SkillBar key={skill.skill_name} index={i} {...skill} />
+              ))}
+            </div>
           </div>
 
           <div className="flex flex-col gap-8">
@@ -83,9 +85,11 @@ export const SkillsContent = () => {
                 Skills
               </span>
             </h3>
-            {PROFESSIONAL_SKILLS.map((skill, i) => (
-              <SkillBar key={skill.skill_name} index={i} {...skill} />
-            ))}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {PROFESSIONAL_SKILLS.map((skill, i) => (
+                <SkillBar key={skill.skill_name} index={i} {...skill} />
+              ))}
+            </div>
           </div>
         </div>
       </div>
