@@ -1,0 +1,187 @@
+@import url("https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.cursive {
+  font-family: "Cedarville Cursive", cursive;
+}
+.Welcome-text {
+  background: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.4),
+      rgba(255, 255, 255, 0.4)
+    ),
+    linear-gradient(90.01deg, #e59cff 0.01%, #ba9cff 50.01%, #9cb2ff 100%);
+  background-blend-mode: normal, screen;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.Welcome-box {
+  isolation: isolate;
+  overflow: hidden;
+  align-items: center;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  border-radius: 32px;
+  box-shadow: inset 0 -7px 11px #a48fff1f;
+  display: flex;
+
+  position: relative;
+  width: -moz-max-content;
+  width: max-content;
+  transition: 0.45s cubic-bezier(0.6, 0.6, 0, 1) box-shadow;
+}
+
+.button-primary {
+  background: linear-gradient(
+      180deg,
+      rgba(60, 8, 126, 0) 0%,
+      rgba(60, 8, 126, 0.32) 100%
+    ),
+    rgba(113, 47, 255, 0.12);
+  box-shadow: inset 0 0 12px #bf97ff3d;
+}
+.button-primary:hover {
+  background: linear-gradient(
+      180deg,
+      rgba(60, 8, 126, 0) 0%,
+      rgba(60, 8, 126, 0.42) 100%
+    ),
+    rgba(113, 47, 255, 0.24);
+  box-shadow: inset 0 0 12px #bf97ff70;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.scrollbar-hidden {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ── Global header height token ───────────────────────────── */
+:root {
+  --header-h: 76px;
+}
+
+/* Frosted-glass site header strip */
+.site-header {
+  height: var(--header-h);
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(112, 66, 248, 0.22);
+  background: rgba(3, 0, 20, 0.55);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  box-shadow:
+    0 1px 0 rgba(112, 66, 248, 0.12),
+    0 4px 32px rgba(112, 66, 248, 0.07);
+}
+
+/* Floating glass navigation pill */
+.glass-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.375rem 0.625rem;
+  border: 1px solid rgba(112, 66, 248, 0.45);
+  border-radius: 9999px;
+  background: rgba(3, 0, 20, 0.5);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  box-shadow:
+    inset 0 -7px 11px #a48fff1f,
+    0 0 24px #7042f833;
+  transition: box-shadow 0.45s cubic-bezier(0.6, 0.6, 0, 1);
+}
+.glass-pill:hover {
+  box-shadow:
+    inset 0 -7px 11px #a48fff1f,
+    0 0 36px #7042f84d;
+}
+
+/* Glass dropdown panel (mobile) */
+.glass-panel {
+  border: 1px solid rgba(112, 66, 248, 0.45);
+  border-radius: 1.25rem;
+  background: rgba(3, 0, 20, 0.75);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  box-shadow:
+    inset 0 -7px 11px #a48fff1f,
+    0 0 24px #7042f833;
+}
+
+/* Active nav link glow */
+.nav-link-active {
+  background: linear-gradient(
+    180deg,
+    rgba(60, 8, 126, 0) 0%,
+    rgba(60, 8, 126, 0.32) 100%,
+    rgba(113, 47, 255, 0.12)
+  );
+  box-shadow: inset 0 0 12px #bf97ff3d;
+  text-shadow: 0 0 12px #b49bff99;
+}
+
+/* Purple/blue atmospheric glow behind the hero portrait */
+.portrait-glow {
+  position: absolute;
+  inset: -10%;
+  background:
+    radial-gradient(
+      42% 38% at 32% 28%,
+      rgba(168, 85, 247, 0.32) 0%,
+      transparent 70%
+    ),
+    radial-gradient(
+      45% 42% at 70% 65%,
+      rgba(6, 182, 212, 0.22) 0%,
+      transparent 70%
+    ),
+    radial-gradient(
+      55% 55% at 50% 50%,
+      rgba(112, 66, 248, 0.16) 0%,
+      transparent 75%
+    );
+  filter: blur(24px);
+  pointer-events: none;
+}
+
+/* Rectangular portrait card — neon border + glow, no circular mask */
+.portrait-card {
+  position: relative;
+  border-radius: 0.75rem;
+  border: 2px solid rgba(112, 66, 248, 0.75);
+  box-shadow:
+    0 0 0 1px rgba(112, 66, 248, 0.15),
+    0 0 32px rgba(112, 66, 248, 0.55),
+    0 0 80px rgba(112, 66, 248, 0.25),
+    0 0 6px rgba(6, 182, 212, 0.3),
+    inset 0 0 20px rgba(112, 66, 248, 0.06);
+  overflow: hidden;
+}
+
+/* ── Full-screen layout system ─────────────────────────────────
+   Replace narrow px-6/md:px-12 + max-w-6xl patterns with these.
+   ─────────────────────────────────────────────────────────── */
+
+/* Fluid horizontal padding: 24px → 80px as viewport grows */
+.section-padding {
+  padding-inline: clamp(24px, 4vw, 80px);
+}
+
+/* Wide content container — fills viewport up to 1800px */
+.content-wide {
+  width: 100%;
+  max-width: 1800px;
+  margin-inline: auto;
+}
