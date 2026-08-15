@@ -19,18 +19,6 @@ export default function PrivacyPage() {
             these pages.
           </p>
 
-          <p className="text-gray-400 text-sm">
-            The site loads images hosted on a third-party image host
-            (i.im.ge). When viewing the design gallery, your browser requests
-            those images directly from the host, which may log standard
-            technical request data such as your IP address and browser
-            details under its own privacy policy.
-          </p>
-
-          <p className="text-gray-400 text-sm">
-            If you have any questions about this website, feel free to reach
-            out through the contact details listed on the portfolio.
-          </p>
         </div>
       </section>
     </main>

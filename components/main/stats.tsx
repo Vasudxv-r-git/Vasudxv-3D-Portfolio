@@ -17,7 +17,7 @@ const StatCounter = ({
   const isYear = value > 1000;
   const motionValue = useMotionValue(0);
   const springValue = useSpring(motionValue, { 
-    damping: isYear ? 20 : 100, 
+    damping: isYear ? 50 : 100, 
     stiffness: isYear ? 250 : 100 
   });
 
