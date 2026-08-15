@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Dock, DockIcon } from "@/components/sub/dock";
 
 import { NAV_LINKS, PROFILE } from "@/constants";
 
@@ -37,23 +38,26 @@ export const Navbar = () => {
           </Link>
 
           {/* Centered glass-pill navigation — desktop only */}
-          <nav className="absolute left-1/2 -translate-x-1/2 hidden md:flex glass-pill">
-            {NAV_LINKS.map((link) => {
-              const isActive = pathname === link.link;
-              return (
-                <Link
-                  key={link.title}
-                  href={link.link}
-                  className={`relative px-4 py-2 text-sm whitespace-nowrap transition rounded-full ${
-                    isActive
-                      ? "text-white nav-link-active"
-                      : "text-gray-300 hover:text-[rgb(112,66,248)]"
-                  }`}
-                >
-                  {link.title}
-                </Link>
-              );
-            })}
+          <nav className="absolute left-1/2 -translate-x-1/2 hidden md:flex glass-pill !p-1">
+            <Dock direction="middle" className="gap-1" iconMagnification={48} iconSize={40}>
+              {NAV_LINKS.map((link) => {
+                const isActive = pathname === link.link;
+                return (
+                  <DockIcon key={link.title}>
+                    <Link
+                      href={link.link}
+                      className={`relative px-4 py-2 text-sm whitespace-nowrap transition rounded-full ${
+                        isActive
+                          ? "text-white nav-link-active"
+                          : "text-gray-300 hover:text-[rgb(112,66,248)]"
+                      }`}
+                    >
+                      {link.title}
+                    </Link>
+                  </DockIcon>
+                );
+              })}
+            </Dock>
           </nav>
 
           {/* Hamburger — mobile / tablet */}
