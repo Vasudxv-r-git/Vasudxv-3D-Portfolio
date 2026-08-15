@@ -4,7 +4,6 @@ import { TrophyIcon } from "@heroicons/react/24/solid";
 import { motion } from "framer-motion";
 
 import { SectionHeading } from "@/components/sub/section-heading";
-import { SpotlightCard } from "@/components/sub/spotlight-card";
 import { CERTIFICATIONS } from "@/constants";
 
 export const CertificationsContent = () => {
@@ -35,13 +34,9 @@ export const CertificationsContent = () => {
                 {certification.issuer} · {certification.year}
               </p>
               <p className="text-gray-400 text-sm">{certification.focus}</p>
-              <SpotlightCard
-                spotlightColor="rgba(112, 66, 248, 0.4)"
-                spotlightSize={100}
-                className="mt-2 text-xs text-[#b49bff] border border-[#7042f88b] rounded-full px-3 py-1 w-fit"
-              >
-                <span className="relative z-10">ID: {certification.id}</span>
-              </SpotlightCard>
+              <span className="mt-2 text-xs text-[#b49bff] border border-[#2A0E61] hover:border-[#7042f88b] transition rounded-full px-3 py-1">
+                ID: {certification.id}
+              </span>
             </motion.div>
           ))}
         </div>

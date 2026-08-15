@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 
 import { SectionHeading } from "@/components/sub/section-heading";
 import { SkillDataProvider } from "@/components/sub/skill-data-provider";
-import { SpotlightCard } from "@/components/sub/spotlight-card";
 import {
   CAD_SKILLS,
   PROFESSIONAL_SKILLS,
@@ -21,20 +20,18 @@ const SkillBar = ({
   index: number;
 }) => {
   return (
-    <SpotlightCard
+    <motion.div
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.1, duration: 0.5 }}
-      spotlightColor="rgba(112, 66, 248, 0.3)"
-      spotlightSize={300}
-      className="flex flex-col items-start gap-3 rounded-lg shadow-lg border border-[#2A0E61] bg-[rgba(3,0,20,0.37)] p-6 hover:border-[#7042f88b] transition-all duration-300 cursor-pointer h-full"
+      className="flex flex-col items-start gap-3 rounded-lg shadow-lg border border-[#2A0E61] bg-[rgba(3,0,20,0.37)] p-6 hover:border-[#7042f88b] transition cursor-pointer h-full"
     >
-      <h3 className="text-lg font-semibold text-white relative z-10">
+      <h3 className="text-lg font-semibold text-white">
         {skill_name}
       </h3>
-      <p className="text-gray-400 text-sm relative z-10">{note}</p>
-    </SpotlightCard>
+      <p className="text-gray-400 text-sm">{note}</p>
+    </motion.div>
   );
 };
 
