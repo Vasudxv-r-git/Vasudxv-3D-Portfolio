@@ -8,7 +8,7 @@ export const Hero = () => {
         muted
         loop
         playsInline
-        className="rotate-180 absolute left-1/2 w-full h-auto -z-20 pointer-events-none"
+        className="hidden lg:block rotate-180 absolute left-1/2 w-full h-auto -z-20 pointer-events-none"
         style={{
           // 1. The Hero container has a global offset in layout.tsx of paddingTop: var(--header-h).
           //    top: 10px moves the origin exactly 10px below the navbar's bottom edge.

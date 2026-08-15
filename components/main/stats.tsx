@@ -14,9 +14,12 @@ const StatCounter = ({
 }) => {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true });
-  const motionValue = useMotionValue(0);
-  const springValue = useSpring(motionValue, { damping: 100, stiffness: 100 });
   const isYear = value > 1000;
+  const motionValue = useMotionValue(0);
+  const springValue = useSpring(motionValue, { 
+    damping: isYear ? 20 : 100, 
+    stiffness: isYear ? 250 : 100 
+  });
 
   useEffect(() => {
     if (inView) {
