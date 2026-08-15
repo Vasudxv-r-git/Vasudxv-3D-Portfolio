@@ -8,7 +8,6 @@ import { motion } from "framer-motion";
 
 import { SectionHeading } from "@/components/sub/section-heading";
 import { PROJECTS } from "@/constants";
-import { MagicCard } from "@/components/magicui/magic-card";
 
 export const ProjectsContent = () => {
   return (
@@ -29,48 +28,46 @@ export const ProjectsContent = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.2, duration: 0.5 }}
-              className="h-full"
+              className="flex flex-col gap-5 rounded-lg shadow-lg border border-[#2A0E61] bg-[rgba(3,0,20,0.37)] p-8 hover:border-[#7042f88b] transition"
             >
-              <MagicCard className="flex flex-col gap-5 shadow-lg p-8 h-full">
-                <div className="flex flex-row items-center justify-between flex-wrap gap-3">
-                  <h3 className="text-2xl font-semibold text-white">
-                    {project.title}
-                  </h3>
-                  <span className="Welcome-box py-[6px] px-[14px] border border-[#7042f88b] text-[#b49bff] text-sm">
-                    {project.year}
+              <div className="flex flex-row items-center justify-between flex-wrap gap-3">
+                <h3 className="text-2xl font-semibold text-white">
+                  {project.title}
+                </h3>
+                <span className="Welcome-box py-[6px] px-[14px] border border-[#7042f88b] text-[#b49bff] text-sm">
+                  {project.year}
+                </span>
+              </div>
+
+              <p className="text-gray-300">{project.summary}</p>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="flex flex-col gap-2 rounded-lg border border-[#2A0E61] p-4">
+                  <span className="flex items-center gap-2 text-white font-medium">
+                    <ExclamationTriangleIcon className="h-5 w-5 text-[#b49bff]" />
+                    Challenge
                   </span>
+                  <p className="text-gray-400 text-sm">{project.challenge}</p>
                 </div>
-
-                <p className="text-gray-300">{project.summary}</p>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="flex flex-col gap-2 rounded-lg border border-[#2A0E61] p-4 bg-[rgba(3,0,20,0.37)]">
-                    <span className="flex items-center gap-2 text-white font-medium">
-                      <ExclamationTriangleIcon className="h-5 w-5 text-[#b49bff]" />
-                      Challenge
-                    </span>
-                    <p className="text-gray-400 text-sm">{project.challenge}</p>
-                  </div>
-                  <div className="flex flex-col gap-2 rounded-lg border border-[#2A0E61] p-4 bg-[rgba(3,0,20,0.37)]">
-                    <span className="flex items-center gap-2 text-white font-medium">
-                      <CheckCircleIcon className="h-5 w-5 text-[#b49bff]" />
-                      Solution
-                    </span>
-                    <p className="text-gray-400 text-sm">{project.solution}</p>
-                  </div>
+                <div className="flex flex-col gap-2 rounded-lg border border-[#2A0E61] p-4">
+                  <span className="flex items-center gap-2 text-white font-medium">
+                    <CheckCircleIcon className="h-5 w-5 text-[#b49bff]" />
+                    Solution
+                  </span>
+                  <p className="text-gray-400 text-sm">{project.solution}</p>
                 </div>
+              </div>
 
-                <div className="flex flex-row flex-wrap gap-3 mt-auto">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-sm text-gray-300 border border-[#7042f88b] bg-[rgba(113,47,255,0.12)] rounded-full px-4 py-1"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </MagicCard>
+              <div className="flex flex-row flex-wrap gap-3">
+                {project.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="text-sm text-gray-300 border border-[#7042f88b] bg-[rgba(113,47,255,0.12)] rounded-full px-4 py-1"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </motion.div>
           ))}
         </div>

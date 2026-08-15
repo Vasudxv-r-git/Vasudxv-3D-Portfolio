@@ -6,26 +6,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import { NAV_LINKS, PROFILE } from "@/constants";
-import { Dock, DockIcon } from "@/components/magicui/dock";
-import {
-  HomeIcon,
-  UserIcon,
-  WrenchIcon,
-  BriefcaseIcon,
-  PenToolIcon,
-  HistoryIcon,
-  AwardIcon,
-} from "lucide-react";
-
-const ICON_MAP: Record<string, React.ElementType<{ className?: string }>> = {
-  Home: HomeIcon,
-  About: UserIcon,
-  Skills: WrenchIcon,
-  Projects: BriefcaseIcon,
-  Designs: PenToolIcon,
-  Experience: HistoryIcon,
-  Certifications: AwardIcon,
-};
 
 export const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -56,30 +36,25 @@ export const Navbar = () => {
             </span>
           </Link>
 
-          {/* Centered Dock navigation — desktop only */}
-          <div className="absolute left-1/2 -translate-x-1/2 hidden md:block">
-            <Dock direction="middle">
-              {NAV_LINKS.map((link) => {
-                const isActive = pathname === link.link;
-                const Icon = ICON_MAP[link.title];
-                return (
-                  <DockIcon key={link.title}>
-                    <Link
-                      href={link.link}
-                      title={link.title}
-                      className={`flex h-full w-full items-center justify-center rounded-full transition-colors ${
-                        isActive
-                          ? "bg-[rgba(112,66,248,0.2)] text-white"
-                          : "text-gray-300 hover:text-white hover:bg-[rgba(112,66,248,0.1)]"
-                      }`}
-                    >
-                      <Icon className="size-5" />
-                    </Link>
-                  </DockIcon>
-                );
-              })}
-            </Dock>
-          </div>
+          {/* Centered glass-pill navigation — desktop only */}
+          <nav className="absolute left-1/2 -translate-x-1/2 hidden md:flex glass-pill">
+            {NAV_LINKS.map((link) => {
+              const isActive = pathname === link.link;
+              return (
+                <Link
+                  key={link.title}
+                  href={link.link}
+                  className={`relative px-4 py-2 text-sm whitespace-nowrap transition rounded-full ${
+                    isActive
+                      ? "text-white nav-link-active"
+                      : "text-gray-300 hover:text-[rgb(112,66,248)]"
+                  }`}
+                >
+                  {link.title}
+                </Link>
+              );
+            })}
+          </nav>
 
           {/* Hamburger — mobile / tablet */}
           <button

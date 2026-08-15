@@ -10,7 +10,6 @@ import { motion } from "framer-motion";
 
 import { SectionHeading } from "@/components/sub/section-heading";
 import { PILLARS } from "@/constants";
-import { MagicCard } from "@/components/magicui/magic-card";
 
 const PILLAR_ICONS = [
   CubeTransparentIcon,
@@ -38,15 +37,13 @@ export const Pillars = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.15, duration: 0.5 }}
-              className="h-full"
+              className="flex flex-col items-center text-center gap-4 rounded-lg shadow-lg border border-[#2A0E61] bg-[rgba(3,0,20,0.37)] p-6 hover:border-[#7042f88b] transition"
             >
-              <MagicCard className="flex flex-col items-center text-center gap-4 shadow-lg p-6 h-full">
-                <Icon className="h-12 w-12 text-[#b49bff]" />
-                <h3 className="text-xl font-semibold text-white">
-                  {pillar.title}
-                </h3>
-                <p className="text-gray-400 text-sm">{pillar.description}</p>
-              </MagicCard>
+              <Icon className="h-12 w-12 text-[#b49bff]" />
+              <h3 className="text-xl font-semibold text-white">
+                {pillar.title}
+              </h3>
+              <p className="text-gray-400 text-sm">{pillar.description}</p>
             </motion.div>
           );
         })}
